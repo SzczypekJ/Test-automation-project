@@ -1,0 +1,107 @@
+# =================================================
+# MAVEN
+# =================================================
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+# Maven release backup files
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+
+# Kotlin (na wszelki wypadek)
+.kotlin
+
+# =================================================
+# INTELLIJ IDEA
+# =================================================
+.idea/
+.idea/modules.xml
+.idea/jarRepositories.xml
+.idea/compiler.xml
+.idea/libraries/
+
+*.iws
+*.iml
+*.ipr
+out/
+
+# =================================================
+# ECLIPSE
+# =================================================
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+# =================================================
+# NETBEANS
+# =================================================
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+# =================================================
+# VS CODE
+# =================================================
+.vscode/
+
+# =================================================
+# ALLURE
+# =================================================
+allure-results/
+allure-report/
+
+# =================================================
+# LOGS
+# =================================================
+*.log
+logs/
+log/
+
+# =================================================
+# TEMP / RUNTIME
+# =================================================
+*.tmp
+*.temp
+*.swp
+
+# =================================================
+# ENV / SECRETS
+# =================================================
+.env
+.env.*
+*.local
+
+# =================================================
+# OS FILES
+# =================================================
+.DS_Store
+Thumbs.db
+
+# =================================================
+# NODE (na przyszłość - frontend / report UI)
+# =================================================
+node_modules/
+
+# =================================================
+# TEST OUTPUT (opcjonalnie jeśli kiedyś dodasz)
+# =================================================
+reports/
+test-output/
+
+# Allure CLI local install
+.allure/
