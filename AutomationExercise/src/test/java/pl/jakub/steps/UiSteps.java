@@ -3,20 +3,24 @@ package pl.jakub.steps;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.By;
+import pl.jakub.common.TestUserProvider;
 import pl.jakub.core.CustomWebDriver;
 import pl.jakub.ui.pages.HomePage;
+import pl.jakub.ui.pages.LoginPage;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class UiSteps {
 
     private final HomePage homePage;
+    private final LoginPage loginPage;
     private CustomWebDriver driver;
+    private final TestUserProvider testUserProvider;
 
-    public UiSteps(HomePage homePage, CustomWebDriver driver) {
+    public UiSteps(HomePage homePage, LoginPage loginPage, CustomWebDriver driver, TestUserProvider testUserProvider) {
         this.homePage = homePage;
+        this.loginPage = loginPage;
         this.driver = driver;
+        this.testUserProvider = testUserProvider;
     }
 
     @Given("user is on the home page")
@@ -26,8 +30,12 @@ public class UiSteps {
 
     @When("user registers a new account")
     public void user_registers_a_new_account() {
-        // TODO: Implement user registration flow via Signup page
-        throw new AssertionError("TODO: Step not implemented - user registers a new account");
+        homePage.openLogin();
+
+        var user = testUserProvider.defaultUser();
+        loginPage.startSignUp(user.name(), user.email());
+
+        String smth1 = "o";
     }
 
     @Then("user is logged in")

@@ -54,7 +54,8 @@ public class HomePageImpl extends BasePage implements HomePage {
         checkPageReady();
     }
 
-    public boolean isTitleContaining(String expected) {
-        return driver.waits().titleContains(expected);
+    @Override
+    public void openLogin() {
+        driver.waits().waitForElementToBeClickable(SIGNUP_LOGIN).click();
     }
 }
