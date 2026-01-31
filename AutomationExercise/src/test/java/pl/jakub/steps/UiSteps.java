@@ -4,9 +4,11 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pl.jakub.common.TestUserProvider;
+import pl.jakub.common.UserCredentials;
 import pl.jakub.core.CustomWebDriver;
 import pl.jakub.ui.pages.HomePage;
 import pl.jakub.ui.pages.LoginPage;
+import pl.jakub.ui.pages.SignUpPage;
 
 
 public class UiSteps {
@@ -15,12 +17,14 @@ public class UiSteps {
     private final LoginPage loginPage;
     private CustomWebDriver driver;
     private final TestUserProvider testUserProvider;
+    private final SignUpPage signUpPage;
 
-    public UiSteps(HomePage homePage, LoginPage loginPage, CustomWebDriver driver, TestUserProvider testUserProvider) {
+    public UiSteps(HomePage homePage, LoginPage loginPage, CustomWebDriver driver, TestUserProvider testUserProvider, SignUpPage signUpPage) {
         this.homePage = homePage;
         this.loginPage = loginPage;
         this.driver = driver;
         this.testUserProvider = testUserProvider;
+        this.signUpPage = signUpPage;
     }
 
     @Given("user is on the home page")
@@ -32,9 +36,10 @@ public class UiSteps {
     public void user_registers_a_new_account() {
         homePage.openLogin();
 
-        var user = testUserProvider.defaultUser();
+        UserCredentials user = testUserProvider.defaultUser();
         loginPage.startSignUp(user.name(), user.email());
 
+        signUpPage.fillRegistrationDetails(user.toRegistrationData());
         String smth1 = "o";
     }
 
