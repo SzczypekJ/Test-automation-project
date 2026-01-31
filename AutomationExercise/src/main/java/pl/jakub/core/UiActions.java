@@ -2,6 +2,7 @@ package pl.jakub.core;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
 
 public class UiActions {
 
@@ -53,5 +54,15 @@ public class UiActions {
     public void hover(By locator) {
         WebElement el = waits.waitForVisibilityOfElement(locator);
         new Actions(driver).moveToElement(el).perform();
+    }
+
+    public void selectByValue(By locator, String value) {
+        WebElement el = waits.waitForElementToBeClickable(locator);
+        new Select(el).selectByValue(value);
+    }
+
+    public void selectByVisibleText(By locator, String text) {
+        WebElement el = waits.waitForElementToBeClickable(locator);
+        new Select(el).selectByVisibleText(text);
     }
 }
