@@ -43,8 +43,10 @@ public class TestUserProvider {
         this.emailBase = emailBase;
         this.password = password;
         this.title = title;
-        this.dateOfBirth = LocalDate.parse(dateOfBirth,
-                DateTimeFormatter.ISO_LOCAL_DATE);
+        this.dateOfBirth = LocalDate.parse(
+                dateOfBirth,
+                DateTimeFormatter.ISO_LOCAL_DATE
+        );
         this.firstName = firstName;
         this.lastName = lastName;
         this.company = company;
@@ -58,7 +60,8 @@ public class TestUserProvider {
     }
 
     public UserCredentials defaultUser() {
-        return new UserCredentials(name,
+        return new UserCredentials(
+                name,
                 emailBase,
                 password,
                 title,
@@ -72,6 +75,7 @@ public class TestUserProvider {
                 state,
                 city,
                 zipCode,
-                mobileNumber);
+                mobileNumber
+        );
     }
 }

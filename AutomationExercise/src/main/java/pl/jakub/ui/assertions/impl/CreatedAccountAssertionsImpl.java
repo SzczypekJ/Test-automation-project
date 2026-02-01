@@ -17,7 +17,9 @@ public class CreatedAccountAssertionsImpl implements CreatedAccountAssertions {
 
     @Override
     public void assertVisibleText(String expectedText) {
-        assertEquals(expectedText.toLowerCase(),
-                createdAccountPage.getPopUpText().toLowerCase());
+        assertEquals(
+                expectedText.toLowerCase(),
+                createdAccountPage.getPopUpText().toLowerCase()
+        );
     }
 }

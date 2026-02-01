@@ -16,7 +16,9 @@ public class DeletedAccountAssertionsImpl implements DeletedAccountAssertions {
 
     @Override
     public void assertVisibleText(String expectedText) {
-        assertEquals(expectedText.toLowerCase(),
-                deletedAccountPage.getPopUpText().toLowerCase());
+        assertEquals(
+                expectedText.toLowerCase(),
+                deletedAccountPage.getPopUpText().toLowerCase()
+        );
     }
 }

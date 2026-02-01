@@ -28,20 +28,24 @@ public class ScreenshotHook {
         // (optional) URL
         try {
             String url = driver.getCurrentUrl();
-            Allure.addAttachment(scenario.getName() + " - url",
+            Allure.addAttachment(
+                    scenario.getName() + " - url",
                     "text/plain",
                     new ByteArrayInputStream(url.getBytes(StandardCharsets.UTF_8)),
-                    ".txt");
+                    ".txt"
+            );
         } catch (Exception ignored) {
         }
 
         // HTML (page source)
         try {
             String html = driver.getPageSource();
-            Allure.addAttachment(scenario.getName() + " - page source",
+            Allure.addAttachment(
+                    scenario.getName() + " - page source",
                     "text/html",
                     new ByteArrayInputStream(html.getBytes(StandardCharsets.UTF_8)),
-                    ".html");
+                    ".html"
+            );
         } catch (Exception ignored) {
         }
 
@@ -49,10 +53,12 @@ public class ScreenshotHook {
         try {
             if (driver instanceof TakesScreenshot ts) {
                 byte[] screenshot = ts.getScreenshotAs(OutputType.BYTES);
-                Allure.addAttachment(scenario.getName() + " - screenshot",
+                Allure.addAttachment(
+                        scenario.getName() + " - screenshot",
                         "image/png",
                         new ByteArrayInputStream(screenshot),
-                        ".png");
+                        ".png"
+                );
             }
         } catch (Exception ignored) {
         }

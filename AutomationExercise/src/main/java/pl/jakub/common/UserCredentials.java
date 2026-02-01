@@ -18,7 +18,8 @@ public record UserCredentials(String name,
         String zipCode,
         String mobileNumber) {
     public RegistrationData toRegistrationData() {
-        return new RegistrationData(title,
+        return new RegistrationData(
+                title,
                 password,
                 dateOfBirth,
                 firstName,
@@ -30,6 +31,7 @@ public record UserCredentials(String name,
                 state,
                 city,
                 zipCode,
-                mobileNumber);
+                mobileNumber
+        );
     }
 }

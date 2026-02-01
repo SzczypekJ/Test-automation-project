@@ -38,8 +38,8 @@
 		<setting id="org.eclipse.jdt.core.formatter.keep_empty_array_initializer_on_one_line" value="true"/>
 		<setting id="org.eclipse.jdt.core.formatter.brace_position_for_lambda_body" value="end_of_line"/>
 		<setting id="org.eclipse.jdt.core.formatter.parentheses_positions_in_method_delcaration" value="preserve_positions"/>
-		<setting id="org.eclipse.jdt.core.formatter.parentheses_positions_in_method_invocation" value="preserve_positions"/>
-		<setting id="org.eclipse.jdt.core.formatter.parentheses_positions_in_enum_constant_declaration" value="preserve_positions"/>
+		<setting id="org.eclipse.jdt.core.formatter.parentheses_positions_in_method_invocation" value="separate_lines_if_wrapped"/>
+		<setting id="org.eclipse.jdt.core.formatter.parentheses_positions_in_enum_constant_declaration" value="separate_lines_if_wrapped"/>
 		<setting id="org.eclipse.jdt.core.formatter.parentheses_positions_in_record_declaration" value="preserve_positions"/>
 		<setting id="org.eclipse.jdt.core.formatter.parentheses_positions_in_annotation" value="preserve_positions"/>
 		<setting id="org.eclipse.jdt.core.formatter.parentheses_positions_in_lambda_declaration" value="preserve_positions"/>
@@ -299,7 +299,7 @@
 		<setting id="org.eclipse.jdt.core.formatter.alignment_for_method_declaration" value="0"/>
 		<setting id="org.eclipse.jdt.core.formatter.alignment_for_throws_clause_in_method_declaration" value="0"/>
 		<setting id="org.eclipse.jdt.core.formatter.alignment_for_parameters_in_method_declaration" value="80"/>
-		<setting id="org.eclipse.jdt.core.formatter.alignment_for_enum_constants" value="49"/>
+		<setting id="org.eclipse.jdt.core.formatter.alignment_for_enum_constants" value="48"/>
 		<setting id="org.eclipse.jdt.core.formatter.alignment_for_arguments_in_enum_constant" value="81"/>
 		<setting id="org.eclipse.jdt.core.formatter.alignment_for_superinterfaces_in_enum_declaration" value="0"/>
 		<setting id="org.eclipse.jdt.core.formatter.alignment_for_record_components" value="80"/>
@@ -332,7 +332,7 @@
 		<setting id="org.eclipse.jdt.core.formatter.alignment_for_expressions_in_for_loop_header" value="2"/>
 		<setting id="org.eclipse.jdt.core.formatter.alignment_for_compact_if" value="16"/>
 		<setting id="org.eclipse.jdt.core.formatter.alignment_for_compact_loops" value="16"/>
-		<setting id="org.eclipse.jdt.core.formatter.alignment_for_resources_in_try" value="2"/>
+		<setting id="org.eclipse.jdt.core.formatter.alignment_for_resources_in_try" value="82"/>
 		<setting id="org.eclipse.jdt.core.formatter.alignment_for_union_type_in_multicatch" value="18"/>
 		<setting id="org.eclipse.jdt.core.formatter.wrap_before_or_operator_multicatch" value="false"/>
 		<setting id="org.eclipse.jdt.core.formatter.alignment_for_assertion_message" value="0"/>

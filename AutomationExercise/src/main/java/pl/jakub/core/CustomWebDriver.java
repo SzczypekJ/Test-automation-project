@@ -40,8 +40,10 @@ public class CustomWebDriver {
     }
 
     public void clearAndType(By locator, String text) {
-        actions.clearAndType(locator,
-                text);
+        actions.clearAndType(
+                locator,
+                text
+        );
     }
 
     public void getUrl(String url) {
@@ -61,8 +63,10 @@ public class CustomWebDriver {
     }
 
     public boolean isVisible(By locator, WaitTimeout timeout) {
-        return waits.isElementVisible(locator,
-                timeout);
+        return waits.isElementVisible(
+                locator,
+                timeout
+        );
     }
 
     public void click(By locator) {

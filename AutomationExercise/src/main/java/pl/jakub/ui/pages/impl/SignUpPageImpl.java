@@ -103,8 +103,10 @@ public class SignUpPageImpl extends BasePage implements SignUpPage {
         driver.waits().waitForElementToBeClickable(ADDRESS).sendKeys(data.address());
         driver.waits().waitForElementToBeClickable(ADDRESS_SECONDARY).sendKeys(data.addressSecond());
         driver.actions()
-                .selectByValue(COUNTRY,
-                        data.country().uiText());
+                .selectByValue(
+                        COUNTRY,
+                        data.country().uiText()
+                );
         driver.waits().waitForElementToBeClickable(STATE).sendKeys(data.state());
         driver.waits().waitForElementToBeClickable(CITY).sendKeys(data.city());
         driver.waits().waitForElementToBeClickable(ZIP_CODE).sendKeys(data.zipCode());
@@ -126,14 +128,20 @@ public class SignUpPageImpl extends BasePage implements SignUpPage {
 
     private void setDateOfBirth(LocalDate dateOfBirth) {
         driver.actions()
-                .selectByValue(DAYS,
-                        String.valueOf(dateOfBirth.getDayOfMonth()));
+                .selectByValue(
+                        DAYS,
+                        String.valueOf(dateOfBirth.getDayOfMonth())
+                );
         driver.actions()
-                .selectByValue(MONTHS,
-                        String.valueOf(dateOfBirth.getMonthValue()));
+                .selectByValue(
+                        MONTHS,
+                        String.valueOf(dateOfBirth.getMonthValue())
+                );
         driver.actions()
-                .selectByValue(YEARS,
-                        String.valueOf(dateOfBirth.getYear()));
+                .selectByValue(
+                        YEARS,
+                        String.valueOf(dateOfBirth.getYear())
+                );
     }
 
     private void setNotificationPreferences() {

@@ -56,10 +56,14 @@ public class UiSteps {
         homePage.openLogin();
 
         UserCredentials user = testUserProvider.defaultUser();
-        loginPage.startSignUp(user.name(),
-                user.email());
-        signUpAssertions.assertProvidedInformation(user.name(),
-                user.email());
+        loginPage.startSignUp(
+                user.name(),
+                user.email()
+        );
+        signUpAssertions.assertProvidedInformation(
+                user.name(),
+                user.email()
+        );
 
         signUpPage.fillRegistrationDetails(user.toRegistrationData());
     }
