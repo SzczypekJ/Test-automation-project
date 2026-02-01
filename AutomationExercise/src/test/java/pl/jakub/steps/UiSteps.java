@@ -5,26 +5,37 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pl.jakub.common.TestUserProvider;
 import pl.jakub.common.UserCredentials;
-import pl.jakub.core.CustomWebDriver;
-import pl.jakub.ui.pages.HomePage;
-import pl.jakub.ui.pages.LoginPage;
-import pl.jakub.ui.pages.SignUpPage;
+import pl.jakub.ui.assertions.CreatedAccountAssertions;
+import pl.jakub.ui.assertions.DeletedAccountAssertions;
+import pl.jakub.ui.assertions.HomePageAssertions;
+import pl.jakub.ui.assertions.SignUpAssertions;
+import pl.jakub.ui.pages.*;
 
 
 public class UiSteps {
 
     private final HomePage homePage;
     private final LoginPage loginPage;
-    private CustomWebDriver driver;
     private final TestUserProvider testUserProvider;
     private final SignUpPage signUpPage;
+    private final CreatedAccountPage createdAccountPage;
+    private final SignUpAssertions signUpAssertions;
+    private final CreatedAccountAssertions createdAccountAssertions;
+    private final HomePageAssertions homePageAssertions;
+    private final DeletedAccountPage deletedAccountPage;
+    private final DeletedAccountAssertions deletedAccountAssertions;
 
-    public UiSteps(HomePage homePage, LoginPage loginPage, CustomWebDriver driver, TestUserProvider testUserProvider, SignUpPage signUpPage) {
+    public UiSteps(HomePage homePage, LoginPage loginPage, TestUserProvider testUserProvider, SignUpPage signUpPage, CreatedAccountPage createdAccountPage, SignUpAssertions signUpAssertions, CreatedAccountAssertions createdAccountAssertions, HomePageAssertions homePageAssertions, DeletedAccountPage deletedAccountPage, DeletedAccountAssertions deletedAccountAssertions) {
         this.homePage = homePage;
         this.loginPage = loginPage;
-        this.driver = driver;
         this.testUserProvider = testUserProvider;
         this.signUpPage = signUpPage;
+        this.createdAccountPage = createdAccountPage;
+        this.signUpAssertions = signUpAssertions;
+        this.createdAccountAssertions = createdAccountAssertions;
+        this.homePageAssertions = homePageAssertions;
+        this.deletedAccountPage = deletedAccountPage;
+        this.deletedAccountAssertions = deletedAccountAssertions;
     }
 
     @Given("user is on the home page")
@@ -38,27 +49,31 @@ public class UiSteps {
 
         UserCredentials user = testUserProvider.defaultUser();
         loginPage.startSignUp(user.name(), user.email());
+        signUpAssertions.assertProvidedInformation(user.name(), user.email());
 
         signUpPage.fillRegistrationDetails(user.toRegistrationData());
-        String smth1 = "o";
     }
 
     @Then("user is logged in")
     public void user_is_logged_in() {
-        // TODO: Verify user is logged in (e.g. 'Logged in as username' visible)
-        throw new AssertionError("TODO: Step not implemented - user is logged in");
+        createdAccountAssertions.assertVisibleText("Account Created!");
+        createdAccountPage.clickContinue();
+
+        UserCredentials user = testUserProvider.defaultUser();
+        homePageAssertions.assertLoggedUser(user.name());
     }
 
     @When("user deletes the account")
     public void user_deletes_the_account() {
-        // TODO: Implement account deletion via Account page
-        throw new AssertionError("TODO: Step not implemented - user deletes the account");
+        homePage.deleteAccount();
+
+        deletedAccountAssertions.assertVisibleText("Account Deleted!");
+        deletedAccountPage.clickContinue();
     }
 
     @Then("account is deleted")
     public void account_is_deleted() {
-        // TODO: Verify account deletion confirmation message
-        throw new AssertionError("TODO: Step not implemented - account is deleted");
+        homePage.checkIfAccountWasDeletedSuccessfully();
     }
 
 }

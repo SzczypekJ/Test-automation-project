@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 import pl.jakub.common.RegistrationData;
 import pl.jakub.common.Title;
 import pl.jakub.core.CustomWebDriver;
+import pl.jakub.ui.components.HeaderComponent;
 import pl.jakub.ui.pages.BasePage;
 import pl.jakub.ui.pages.SignUpPage;
 
@@ -13,6 +14,8 @@ import java.util.List;
 
 @Component
 public class SignUpPageImpl extends BasePage implements SignUpPage {
+
+    private final HeaderComponent header;
 
     private static final By SIGN_UP_FORM = By.xpath("//div[@class='login-form']");
 
@@ -58,8 +61,9 @@ public class SignUpPageImpl extends BasePage implements SignUpPage {
 
     private static final By CREATE_ACCOUNT = By.xpath("//button[@data-qa='create-account']");
 
-    public SignUpPageImpl(CustomWebDriver driver) {
+    public SignUpPageImpl(CustomWebDriver driver, HeaderComponent header) {
         super(driver);
+        this.header = header;
     }
 
     @Override
@@ -74,6 +78,10 @@ public class SignUpPageImpl extends BasePage implements SignUpPage {
         );
     }
 
+    @Override
+    protected void additionalReadyChecks() {
+        header.waitUntilReady();
+    }
 
     @Override
     public String getEmailValue() {
@@ -84,6 +92,7 @@ public class SignUpPageImpl extends BasePage implements SignUpPage {
 
     @Override
     public void fillRegistrationDetails(RegistrationData data) {
+        checkPageReady();
         setTitle(data.title());
 
         driver.waits().waitForElementToBeClickable(PASSWORD).sendKeys(data.password());
@@ -98,13 +107,14 @@ public class SignUpPageImpl extends BasePage implements SignUpPage {
         driver.waits().waitForElementToBeClickable(COMPANY).sendKeys(data.company());
         driver.waits().waitForElementToBeClickable(ADDRESS).sendKeys(data.address());
         driver.waits().waitForElementToBeClickable(ADDRESS_SECONDARY).sendKeys(data.addressSecond());
-        driver.actions().selectByValue(COUNTRY, String.valueOf(data.country().uiText()));
+        driver.actions().selectByValue(COUNTRY, data.country().uiText());
         driver.waits().waitForElementToBeClickable(STATE).sendKeys(data.state());
         driver.waits().waitForElementToBeClickable(CITY).sendKeys(data.city());
         driver.waits().waitForElementToBeClickable(ZIP_CODE).sendKeys(data.zipCode());
         driver.waits().waitForElementToBeClickable(MOBILE_NUMBER).sendKeys(data.mobileNumber());
 
         driver.waits().waitForElementToBeClickable(CREATE_ACCOUNT).click();
+        driver.actions().closeVignetteAdIfPresent();
     }
 
     private void setTitle(Title title) {

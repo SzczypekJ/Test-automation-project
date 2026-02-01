@@ -100,4 +100,13 @@ public class Waits {
     public boolean isElementVisible(By locator) {
         return isElementVisible(locator, WaitTimeout.DEFAULT);
     }
+
+    public boolean isDisplayedNow(By locator) {
+        try {
+            var els = driver.findElements(locator); // zero wait
+            return !els.isEmpty() && els.get(0).isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
+    }
 }

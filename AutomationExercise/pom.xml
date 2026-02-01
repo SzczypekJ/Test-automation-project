@@ -19,7 +19,7 @@
         <junit.version>5.10.2</junit.version>
         <cucumber.version>7.16.1</cucumber.version>
         <spring.boot.version>3.2.5</spring.boot.version>
-        <selenium.version>4.20.0</selenium.version>
+        <selenium.version>4.40.0</selenium.version>
         <restassured.version>5.4.0</restassured.version>
         <allure.version>2.29.0</allure.version>
     </properties>
@@ -69,6 +69,12 @@
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
+        </dependency>
+
+        <!-- DevTools (nearest match dla Chrome 144 -> v143) -->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-devtools-v143</artifactId>
         </dependency>
 
         <!-- WebDriver Manager -->
@@ -148,6 +154,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.13.0</version>
                 <configuration>
                     <source>21</source>
                     <target>21</target>

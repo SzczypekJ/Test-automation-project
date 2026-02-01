@@ -11,4 +11,25 @@ public interface HomePage {
      * Opens Login Page
      */
     void openLogin();
+
+    /**
+     * Fetch the logged username
+     */
+    String getLoggedUserName();
+
+    /**
+     * Click on delete account button
+     */
+    void deleteAccount();
+
+    /**
+     * Verifies that account was deleted correctly
+     */
+    void checkIfAccountWasDeletedSuccessfully();
+
+    /**
+     * Checks whether logged user label is visible
+     */
+    boolean isLoggedUserVisible();
+
 }

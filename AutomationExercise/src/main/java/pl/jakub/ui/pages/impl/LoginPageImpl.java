@@ -3,6 +3,7 @@ package pl.jakub.ui.pages.impl;
 import org.openqa.selenium.By;
 import org.springframework.stereotype.Component;
 import pl.jakub.core.CustomWebDriver;
+import pl.jakub.ui.components.HeaderComponent;
 import pl.jakub.ui.pages.BasePage;
 import pl.jakub.ui.pages.LoginPage;
 
@@ -10,6 +11,8 @@ import java.util.List;
 
 @Component
 public class LoginPageImpl extends BasePage implements LoginPage {
+
+    private final HeaderComponent header;
 
     private static final By LOGIN_FORM = By.xpath("//div[@class='login-form']");
 
@@ -27,8 +30,9 @@ public class LoginPageImpl extends BasePage implements LoginPage {
 
     private static final By SIGNUP_NAME_INPUT = By.xpath("//input[@data-qa='signup-name']");
 
-    public LoginPageImpl(CustomWebDriver driver) {
+    public LoginPageImpl(CustomWebDriver driver, HeaderComponent header) {
         super(driver);
+        this.header = header;
     }
 
     @Override
@@ -42,6 +46,11 @@ public class LoginPageImpl extends BasePage implements LoginPage {
                 LOGIN_FORM,
                 SIGNUP_FORM
         );
+    }
+
+    @Override
+    protected void additionalReadyChecks() {
+        header.waitUntilReady();
     }
 
 
