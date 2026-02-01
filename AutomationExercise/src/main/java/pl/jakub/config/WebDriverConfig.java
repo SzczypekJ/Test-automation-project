@@ -23,8 +23,7 @@ public class WebDriverConfig {
             destroyMethod = "quit"
     )
     @Scope(
-            value = CucumberTestContext.SCOPE_CUCUMBER_GLUE,
-            proxyMode = ScopedProxyMode.TARGET_CLASS
+            value = CucumberTestContext.SCOPE_CUCUMBER_GLUE, proxyMode = ScopedProxyMode.TARGET_CLASS
     )
     public WebDriver webDriver(
             @org.springframework.beans.factory.annotation.Value(
