@@ -25,15 +25,15 @@ public class UiSteps {
     private final DeletedAccountAssertions deletedAccountAssertions;
 
     public UiSteps(HomePage homePage,
-                    LoginPage loginPage,
-                    TestUserProvider testUserProvider,
-                    SignUpPage signUpPage,
-                    CreatedAccountPage createdAccountPage,
-                    SignUpAssertions signUpAssertions,
-                    CreatedAccountAssertions createdAccountAssertions,
-                    HomePageAssertions homePageAssertions,
-                    DeletedAccountPage deletedAccountPage,
-                    DeletedAccountAssertions deletedAccountAssertions) {
+                                    LoginPage loginPage,
+                                    TestUserProvider testUserProvider,
+                                    SignUpPage signUpPage,
+                                    CreatedAccountPage createdAccountPage,
+                                    SignUpAssertions signUpAssertions,
+                                    CreatedAccountAssertions createdAccountAssertions,
+                                    HomePageAssertions homePageAssertions,
+                                    DeletedAccountPage deletedAccountPage,
+                                    DeletedAccountAssertions deletedAccountAssertions) {
         this.homePage = homePage;
         this.loginPage = loginPage;
         this.testUserProvider = testUserProvider;

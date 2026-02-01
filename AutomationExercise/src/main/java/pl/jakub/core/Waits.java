@@ -28,13 +28,14 @@ public class Waits {
 
     private FluentWait<WebDriver> waitDriver(Duration timeoutOverride) {
         Duration t =
-                        (timeoutOverride == null || timeoutOverride.isZero() || timeoutOverride.isNegative())
-                                        ? timeout
-                                        : timeoutOverride;
+                                        (timeoutOverride == null || timeoutOverride.isZero()
+                                                                        || timeoutOverride.isNegative())
+                                                                                                        ? timeout
+                                                                                                        : timeoutOverride;
 
         return new WebDriverWait(driver, t).pollingEvery(pollEvery)
-                        .ignoring(StaleElementReferenceException.class)
-                        .ignoring(NoSuchElementException.class);
+                                        .ignoring(StaleElementReferenceException.class)
+                                        .ignoring(NoSuchElementException.class);
     }
 
     public WebElement waitForVisibilityOfElement(By locator) {
@@ -67,18 +68,23 @@ public class Waits {
 
     public boolean textToBePresentIn(By locator, String text) {
         return Boolean.TRUE.equals(
-                        waitDriver().until(ExpectedConditions.textToBePresentInElementLocated(locator, text)));
+                                        waitDriver().until(ExpectedConditions
+                                                                        .textToBePresentInElementLocated(
+                                                                                                        locator,
+                                                                                                        text)));
     }
 
     public boolean checkIfElementIsInvisible(By locator) {
         return Boolean.TRUE
-                        .equals(waitDriver().until(ExpectedConditions.invisibilityOfElementLocated(locator)));
+                                        .equals(waitDriver().until(ExpectedConditions
+                                                                        .invisibilityOfElementLocated(locator)));
     }
 
     public void forJsReady() {
         waitDriver().until(d -> {
             try {
-                Object result = ((JavascriptExecutor) d).executeScript("return document.readyState");
+                Object result = ((JavascriptExecutor) d)
+                                                .executeScript("return document.readyState");
                 return "complete".equals(result);
             } catch (Exception e) {
                 return false;
@@ -88,7 +94,8 @@ public class Waits {
 
     public boolean isElementVisible(By locator, WaitTimeout timeout) {
         try {
-            waitDriver(timeout.duration()).until(ExpectedConditions.visibilityOfElementLocated(locator));
+            waitDriver(timeout.duration()).until(
+                                            ExpectedConditions.visibilityOfElementLocated(locator));
             return true;
         } catch (TimeoutException e) {
             return false;

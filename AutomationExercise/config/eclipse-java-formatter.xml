@@ -8,32 +8,32 @@
 		<setting id="org.eclipse.jdt.core.formatter.tabulation.size" value="4"/>
 
 		<!-- Kontynuacje (params, chainy, itd.) -->
-		<setting id="org.eclipse.jdt.core.formatter.continuation_indentation" value="4"/>
+		<setting id="org.eclipse.jdt.core.formatter.continuation_indentation" value="8"/>
 		<setting id="org.eclipse.jdt.core.formatter.continuation_indentation_for_array_initializer" value="4"/>
 
 		<!-- Nie sklejaj linii, które zostały zawinięte -->
 		<setting id="org.eclipse.jdt.core.formatter.join_wrapped_lines" value="false"/>
 
 		<!-- Dłuższa linia = mniej przypadkowych zlepków; a jak już złamie, to zostawi złamane -->
-		<setting id="org.eclipse.jdt.core.formatter.lineSplit" value="120"/>
+		<setting id="org.eclipse.jdt.core.formatter.lineSplit" value="100"/>
 		<setting id="org.eclipse.jdt.core.formatter.comment.line_length" value="120"/>
 
 		<!-- Preferuj pionowe łamanie w testach: parametry, argumenty, enumy -->
-		<setting id="org.eclipse.jdt.core.formatter.alignment_for_arguments_in_method_invocation" value="80"/>
-		<setting id="org.eclipse.jdt.core.formatter.alignment_for_arguments_in_allocation_expression" value="80"/>
+		<setting id="org.eclipse.jdt.core.formatter.alignment_for_arguments_in_method_invocation" value="16"/>
+		<setting id="org.eclipse.jdt.core.formatter.alignment_for_arguments_in_allocation_expression" value="16"/>
 		<setting id="org.eclipse.jdt.core.formatter.alignment_for_arguments_in_qualified_allocation_expression" value="80"/>
 		<setting id="org.eclipse.jdt.core.formatter.alignment_for_arguments_in_explicit_constructor_call" value="80"/>
 		<setting id="org.eclipse.jdt.core.formatter.alignment_for_parameters_in_method_declaration" value="80"/>
 		<setting id="org.eclipse.jdt.core.formatter.alignment_for_parameters_in_constructor_declaration" value="80"/>
 
 		<!-- Enum constants: preferuj łamanie zamiast upychania -->
-		<setting id="org.eclipse.jdt.core.formatter.alignment_for_enum_constants" value="80"/>
+		<setting id="org.eclipse.jdt.core.formatter.alignment_for_enum_constants" value="16"/>
 
 		<!-- Method chaining: żeby nie sklejało selectorów w jedną linię -->
-		<setting id="org.eclipse.jdt.core.formatter.alignment_for_selector_in_method_invocation" value="80"/>
+		<setting id="org.eclipse.jdt.core.formatter.alignment_for_selector_in_method_invocation" value="16"/>
 		<setting id="org.eclipse.jdt.core.formatter.alignment_for_cascading_method_invocation_with_arguments" value="80"/>
 		<setting id="org.eclipse.jdt.core.formatter.alignment_for_cascading_method_invocation_with_arguments.count_dependent" value="80|-1|80"/>
-		<setting id="org.eclipse.jdt.core.formatter.alignment_for_selector_in_method_invocation.count_dependent" value="80|4|80"/>
+		<setting id="org.eclipse.jdt.core.formatter.alignment_for_selector_in_method_invocation.count_dependent" value="16|-1|16"/>
 
 		<!-- ====== RESZTA: Twoje istniejące ustawienia (bez zmian) ====== -->
 		<setting id="org.eclipse.jdt.core.formatter.comment.insert_new_line_before_root_tags" value="insert"/>
@@ -102,7 +102,7 @@
 		<setting id="org.eclipse.jdt.core.formatter.align_type_members_on_columns" value="false"/>
 		<setting id="org.eclipse.jdt.core.formatter.blank_lines_before_member_type" value="0"/>
 		<setting id="org.eclipse.jdt.core.formatter.insert_space_after_opening_paren_in_enum_constant" value="do not insert"/>
-		<setting id="org.eclipse.jdt.core.formatter.alignment_for_enum_constants.count_dependent" value="16|5|48"/>
+		<setting id="org.eclipse.jdt.core.formatter.alignment_for_enum_constants.count_dependent" value="16|-1|16"/>
 		<setting id="org.eclipse.jdt.core.formatter.insert_space_after_opening_paren_in_for" value="do not insert"/>
 		<setting id="org.eclipse.jdt.core.formatter.insert_space_before_opening_brace_in_method_declaration" value="insert"/>
 		<setting id="org.eclipse.jdt.core.formatter.insert_space_after_opening_paren_in_switch" value="do not insert"/>

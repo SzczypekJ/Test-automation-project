@@ -24,6 +24,6 @@ public class HomePageAssertionsImpl implements HomePageAssertions {
     @Override
     public void assertAccountDeleted() {
         assertFalse(homePage.isLoggedUserVisible(),
-                        "Account deletion failed — user is still logged in");
+                                        "Account deletion failed — user is still logged in");
     }
 }

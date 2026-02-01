@@ -29,9 +29,10 @@ public class ScreenshotHook {
         try {
             String url = driver.getCurrentUrl();
             Allure.addAttachment(scenario.getName() + " - url",
-                            "text/plain",
-                            new ByteArrayInputStream(url.getBytes(StandardCharsets.UTF_8)),
-                            ".txt");
+                                            "text/plain",
+                                            new ByteArrayInputStream(url.getBytes(
+                                                                            StandardCharsets.UTF_8)),
+                                            ".txt");
         } catch (Exception ignored) {
         }
 
@@ -39,9 +40,10 @@ public class ScreenshotHook {
         try {
             String html = driver.getPageSource();
             Allure.addAttachment(scenario.getName() + " - page source",
-                            "text/html",
-                            new ByteArrayInputStream(html.getBytes(StandardCharsets.UTF_8)),
-                            ".html");
+                                            "text/html",
+                                            new ByteArrayInputStream(html.getBytes(
+                                                                            StandardCharsets.UTF_8)),
+                                            ".html");
         } catch (Exception ignored) {
         }
 
@@ -50,9 +52,9 @@ public class ScreenshotHook {
             if (driver instanceof TakesScreenshot ts) {
                 byte[] screenshot = ts.getScreenshotAs(OutputType.BYTES);
                 Allure.addAttachment(scenario.getName() + " - screenshot",
-                                "image/png",
-                                new ByteArrayInputStream(screenshot),
-                                ".png");
+                                                "image/png",
+                                                new ByteArrayInputStream(screenshot),
+                                                ".png");
             }
         } catch (Exception ignored) {
         }

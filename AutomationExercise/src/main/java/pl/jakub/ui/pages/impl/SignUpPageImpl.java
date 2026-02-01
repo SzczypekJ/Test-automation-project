@@ -101,7 +101,8 @@ public class SignUpPageImpl extends BasePage implements SignUpPage {
         driver.waits().waitForElementToBeClickable(LAST_NAME).sendKeys(data.lastName());
         driver.waits().waitForElementToBeClickable(COMPANY).sendKeys(data.company());
         driver.waits().waitForElementToBeClickable(ADDRESS).sendKeys(data.address());
-        driver.waits().waitForElementToBeClickable(ADDRESS_SECONDARY).sendKeys(data.addressSecond());
+        driver.waits().waitForElementToBeClickable(ADDRESS_SECONDARY)
+                                        .sendKeys(data.addressSecond());
         driver.actions().selectByValue(COUNTRY, data.country().uiText());
         driver.waits().waitForElementToBeClickable(STATE).sendKeys(data.state());
         driver.waits().waitForElementToBeClickable(CITY).sendKeys(data.city());

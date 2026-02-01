@@ -11,10 +11,10 @@ public class HeaderComponentImpl implements HeaderComponent {
     private final CustomWebDriver driver;
 
     private static final By SIGNUP_LOGIN =
-                    By.xpath("//ul[contains(@class, 'nav')]//li//a[@href='/login']");
+                                    By.xpath("//ul[contains(@class, 'nav')]//li//a[@href='/login']");
 
     private static final By DELETE_ACCOUNT =
-                    By.xpath("//ul[contains(@class,'nav')]//a[@href='/delete_account']");
+                                    By.xpath("//ul[contains(@class,'nav')]//a[@href='/delete_account']");
 
     private static final By LOGGED_USER = By.xpath("//li[a[contains(.,'Logged in as')]]//b");
 

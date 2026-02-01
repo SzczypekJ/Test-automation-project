@@ -10,11 +10,11 @@ public class UiActions {
     private final Waits waits;
 
     private static final By VIGNETTE_CLOSE_BUTTON =
-                    By.xpath("//*[self::button or self::div or self::span]"
-                                    + "[normalize-space()='Close' or @aria-label='Close' or @title='Close']");
+                                    By.xpath("//*[self::button or self::div or self::span]"
+                                                                    + "[normalize-space()='Close' or @aria-label='Close' or @title='Close']");
 
     private static final By VIGNETTE_OVERLAY =
-                    By.cssSelector("body > div[role='dialog'], iframe[id*='google'], iframe[src*='google']");
+                                    By.cssSelector("body > div[role='dialog'], iframe[id*='google'], iframe[src*='google']");
 
     public UiActions(WebDriver driver, Waits waits) {
         this.driver = driver;
@@ -23,8 +23,9 @@ public class UiActions {
 
     public void scrollIntoView(By locator) {
         WebElement el = waits.waitForPresenceOfElement(locator);
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block:'center'});",
-                        el);
+        ((JavascriptExecutor) driver).executeScript(
+                                        "arguments[0].scrollIntoView({block:'center'});",
+                                        el);
     }
 
     public void jsClick(By locator) {
@@ -45,14 +46,14 @@ public class UiActions {
     }
 
     /**
-     * Click “safe”: 1) waits until the element is clickable and clicks normally 2) if something is covering it /
-     * constantly / intercept -> scroll + JS click
+     * Click “safe”: 1) waits until the element is clickable and clicks normally 2) if something is covering it / constantly
+     * / intercept -> scroll + JS click
      */
     public void safeClick(By locator) {
         try {
             waits.waitForElementToBeClickable(locator).click();
         } catch (ElementClickInterceptedException | StaleElementReferenceException
-                        | TimeoutException e) {
+                                        | TimeoutException e) {
             scrollIntoView(locator);
             jsClick(locator);
         }

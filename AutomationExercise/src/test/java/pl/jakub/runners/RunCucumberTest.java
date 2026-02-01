@@ -13,6 +13,6 @@ import org.junit.platform.suite.api.Suite;
 @SelectClasspathResource("features")
 @ConfigurationParameter(key = GLUE_PROPERTY_NAME, value = "pl.jakub")
 @ConfigurationParameter(key = PLUGIN_PROPERTY_NAME,
-                value = "pretty,io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm")
+                                value = "pretty,io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm")
 public class RunCucumberTest {
 }

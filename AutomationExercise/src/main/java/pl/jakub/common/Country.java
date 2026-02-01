@@ -6,7 +6,7 @@ public enum Country {
     CANADA("Canada"),
     AUSTRALIA("Australia"),
     ISRAEL(
-                    "Israel"),
+                                    "Israel"),
     NEW_ZEALAND("New Zealand"),
     SINGAPORE("Singapore");
 

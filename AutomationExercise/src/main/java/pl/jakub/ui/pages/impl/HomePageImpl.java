@@ -16,7 +16,7 @@ public class HomePageImpl extends BasePage implements HomePage {
     private static final By FEATURE_ITEMS = By.xpath("//div[@class='features_items']");
 
     private static final By CONSENT =
-                    By.xpath("//button[@role='button' and contains(@class, 'consent')]");
+                                    By.xpath("//button[@role='button' and contains(@class, 'consent')]");
 
     public HomePageImpl(CustomWebDriver driver, HeaderComponent header) {
         super(driver);
