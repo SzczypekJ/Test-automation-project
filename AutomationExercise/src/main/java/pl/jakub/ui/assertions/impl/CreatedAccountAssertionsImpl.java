@@ -9,14 +9,14 @@ import pl.jakub.ui.pages.CreatedAccountPage;
 @Component
 public class CreatedAccountAssertionsImpl implements CreatedAccountAssertions {
 
-  private final CreatedAccountPage createdAccountPage;
+	private final CreatedAccountPage createdAccountPage;
 
-  public CreatedAccountAssertionsImpl(CreatedAccountPage createdAccountPage) {
-    this.createdAccountPage = createdAccountPage;
-  }
+	public CreatedAccountAssertionsImpl(CreatedAccountPage createdAccountPage) {
+		this.createdAccountPage = createdAccountPage;
+	}
 
-  @Override
-  public void assertVisibleText(String expectedText) {
-    assertEquals(expectedText.toLowerCase(), createdAccountPage.getPopUpText().toLowerCase());
-  }
+	@Override
+	public void assertVisibleText(String expectedText) {
+		assertEquals(expectedText.toLowerCase(), createdAccountPage.getPopUpText().toLowerCase());
+	}
 }

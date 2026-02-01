@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class ApiClient {
-  public RequestSpecification request() {
-    return RestAssured.given().baseUri("https://automationexercise.com").basePath("/api");
-  }
+	public RequestSpecification request() {
+		return RestAssured.given().baseUri("https://automationexercise.com").basePath("/api");
+	}
 }

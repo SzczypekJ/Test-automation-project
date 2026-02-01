@@ -8,18 +8,18 @@ import org.springframework.stereotype.Component;
 @Scope(CucumberTestContext.SCOPE_CUCUMBER_GLUE)
 public class CommonContext {
 
-  // === UI ===
-  public Integer price;
-  public String productName;
+	// === UI ===
+	public Integer price;
+	public String productName;
 
-  // === API ===
-  public Integer statusCode;
-  public String responseBody;
+	// === API ===
+	public Integer statusCode;
+	public String responseBody;
 
-  public void reset() {
-    price = null;
-    productName = null;
-    statusCode = null;
-    responseBody = null;
-  }
+	public void reset() {
+		price = null;
+		productName = null;
+		statusCode = null;
+		responseBody = null;
+	}
 }

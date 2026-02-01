@@ -6,4 +6,5 @@ import pl.jakub.config.TestSpringConfig;
 
 @CucumberContextConfiguration
 @ContextConfiguration(classes = TestSpringConfig.class)
-public class CucumberSpringConfiguration {}
+public class CucumberSpringConfiguration {
+}
