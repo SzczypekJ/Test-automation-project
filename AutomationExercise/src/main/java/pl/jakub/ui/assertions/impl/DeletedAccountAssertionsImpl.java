@@ -8,14 +8,14 @@ import pl.jakub.ui.pages.DeletedAccountPage;
 
 @Component
 public class DeletedAccountAssertionsImpl implements DeletedAccountAssertions {
-	private final DeletedAccountPage deletedAccountPage;
+    private final DeletedAccountPage deletedAccountPage;
 
-	public DeletedAccountAssertionsImpl(DeletedAccountPage deletedAccountPage) {
-		this.deletedAccountPage = deletedAccountPage;
-	}
+    public DeletedAccountAssertionsImpl(DeletedAccountPage deletedAccountPage) {
+        this.deletedAccountPage = deletedAccountPage;
+    }
 
-	@Override
-	public void assertVisibleText(String expectedText) {
-		assertEquals(expectedText.toLowerCase(), deletedAccountPage.getPopUpText().toLowerCase());
-	}
+    @Override
+    public void assertVisibleText(String expectedText) {
+        assertEquals(expectedText.toLowerCase(), deletedAccountPage.getPopUpText().toLowerCase());
+    }
 }
