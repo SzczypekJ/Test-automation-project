@@ -9,21 +9,15 @@ import pl.jakub.ui.pages.SignUpPage;
 @Component
 public class SignUpAssertionsImpl implements SignUpAssertions {
 
-    private final SignUpPage signUpPage;
+  private final SignUpPage signUpPage;
 
-    public SignUpAssertionsImpl(SignUpPage signUpPage) {
-        this.signUpPage = signUpPage;
-    }
+  public SignUpAssertionsImpl(SignUpPage signUpPage) {
+    this.signUpPage = signUpPage;
+  }
 
-    @Override
-    public void assertProvidedInformation(String expectedName, String expectedEmail) {
-        assertEquals(
-                expectedEmail,
-                signUpPage.getEmailValue()
-        );
-        assertEquals(
-                expectedName,
-                signUpPage.getNameValue()
-        );
-    }
+  @Override
+  public void assertProvidedInformation(String expectedName, String expectedEmail) {
+    assertEquals(expectedEmail, signUpPage.getEmailValue());
+    assertEquals(expectedName, signUpPage.getNameValue());
+  }
 }

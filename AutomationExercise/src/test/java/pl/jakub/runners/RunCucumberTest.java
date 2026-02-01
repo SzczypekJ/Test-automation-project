@@ -9,17 +9,10 @@ import org.junit.platform.suite.api.SelectClasspathResource;
 import org.junit.platform.suite.api.Suite;
 
 @Suite
-@IncludeEngines(
-    "cucumber"
-)
-@SelectClasspathResource(
-    "features"
-)
-@ConfigurationParameter(
-        key = GLUE_PROPERTY_NAME, value = "pl.jakub"
-)
-@ConfigurationParameter(
-        key = PLUGIN_PROPERTY_NAME, value = "pretty,io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"
-)
+@IncludeEngines("cucumber")
+@SelectClasspathResource("features")
+@ConfigurationParameter(key = GLUE_PROPERTY_NAME, value = "pl.jakub")
+@ConfigurationParameter(key = PLUGIN_PROPERTY_NAME,
+    value = "pretty,io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm")
 public class RunCucumberTest {
 }

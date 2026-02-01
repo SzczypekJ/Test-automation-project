@@ -5,8 +5,6 @@ import org.springframework.test.context.ContextConfiguration;
 import pl.jakub.config.TestSpringConfig;
 
 @CucumberContextConfiguration
-@ContextConfiguration(
-        classes = TestSpringConfig.class
-)
+@ContextConfiguration(classes = TestSpringConfig.class)
 public class CucumberSpringConfiguration {
 }

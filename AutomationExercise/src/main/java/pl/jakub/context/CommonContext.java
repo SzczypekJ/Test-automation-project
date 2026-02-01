@@ -5,23 +5,21 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
-@Scope(
-    CucumberTestContext.SCOPE_CUCUMBER_GLUE
-)
+@Scope(CucumberTestContext.SCOPE_CUCUMBER_GLUE)
 public class CommonContext {
 
-    // === UI ===
-    public Integer price;
-    public String productName;
+  // === UI ===
+  public Integer price;
+  public String productName;
 
-    // === API ===
-    public Integer statusCode;
-    public String responseBody;
+  // === API ===
+  public Integer statusCode;
+  public String responseBody;
 
-    public void reset() {
-        price = null;
-        productName = null;
-        statusCode = null;
-        responseBody = null;
-    }
+  public void reset() {
+    price = null;
+    productName = null;
+    statusCode = null;
+    responseBody = null;
+  }
 }
