@@ -2,7 +2,8 @@ package pl.jakub.common;
 
 import java.time.LocalDate;
 
-public record UserCredentials(String name,
+public record UserCredentials(
+        String name,
         String email,
         String password,
         Title title,
@@ -16,7 +17,8 @@ public record UserCredentials(String name,
         String state,
         String city,
         String zipCode,
-        String mobileNumber) {
+        String mobileNumber
+) {
     public RegistrationData toRegistrationData() {
         return new RegistrationData(
                 title,

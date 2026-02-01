@@ -12,12 +12,16 @@ public class ContextHook {
         this.ctx = ctx;
     }
 
-    @Before(order = 0)
+    @Before(
+            order = 0
+    )
     public void beforeScenario() {
         ctx.reset();
     }
 
-    @After(order = 999)
+    @After(
+            order = 999
+    )
     public void afterScenario() {
         ctx.reset();
     }

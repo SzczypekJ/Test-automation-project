@@ -24,21 +24,53 @@ public class TestUserProvider {
     private final String zipCode;
     private final String mobileNumber;
 
-    public TestUserProvider(@Value("${test.user.name}") String name,
-            @Value("${test.user.email}") String emailBase,
-            @Value("${test.user.password}") String password,
-            @Value("${test.user.title}") Title title,
-            @Value("${test.user.dateOfBirth}") String dateOfBirth,
-            @Value("${test.user.firstName}") String firstName,
-            @Value("${test.user.lastName}") String lastName,
-            @Value("${test.user.company}") String company,
-            @Value("${test.user.address}") String address,
-            @Value("${test.user.addressSecond:}") String addressSecond,
-            @Value("${test.user.country}") Country country,
-            @Value("${test.user.state}") String state,
-            @Value("${test.user.city}") String city,
-            @Value("${test.user.zipCode}") String zipCode,
-            @Value("${test.user.mobileNumber}") String mobileNumber) {
+    public TestUserProvider(
+            @Value(
+                "${test.user.name}"
+            ) String name,
+            @Value(
+                "${test.user.email}"
+            ) String emailBase,
+            @Value(
+                "${test.user.password}"
+            ) String password,
+            @Value(
+                "${test.user.title}"
+            ) Title title,
+            @Value(
+                "${test.user.dateOfBirth}"
+            ) String dateOfBirth,
+            @Value(
+                "${test.user.firstName}"
+            ) String firstName,
+            @Value(
+                "${test.user.lastName}"
+            ) String lastName,
+            @Value(
+                "${test.user.company}"
+            ) String company,
+            @Value(
+                "${test.user.address}"
+            ) String address,
+            @Value(
+                "${test.user.addressSecond:}"
+            ) String addressSecond,
+            @Value(
+                "${test.user.country}"
+            ) Country country,
+            @Value(
+                "${test.user.state}"
+            ) String state,
+            @Value(
+                "${test.user.city}"
+            ) String city,
+            @Value(
+                "${test.user.zipCode}"
+            ) String zipCode,
+            @Value(
+                "${test.user.mobileNumber}"
+            ) String mobileNumber
+    ) {
         this.name = name;
         this.emailBase = emailBase;
         this.password = password;

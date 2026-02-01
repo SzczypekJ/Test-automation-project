@@ -11,11 +11,18 @@ import pl.jakub.core.UiActions;
 import pl.jakub.core.Waits;
 
 @Configuration
-@PropertySource("classpath:application.properties")
+@PropertySource(
+    "classpath:application.properties"
+)
 public class UiSupportConfig {
 
     @Bean
-    public Waits waits(WebDriver webDriver, @Value("${ui.timeoutSeconds:10}") long timeoutSeconds) {
+    public Waits waits(
+            WebDriver webDriver,
+            @Value(
+                "${ui.timeoutSeconds:10}"
+            ) long timeoutSeconds
+    ) {
         return new Waits(
                 webDriver,
                 Duration.ofSeconds(timeoutSeconds)

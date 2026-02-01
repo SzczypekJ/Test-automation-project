@@ -24,7 +24,8 @@ public class UiSteps {
     private final DeletedAccountPage deletedAccountPage;
     private final DeletedAccountAssertions deletedAccountAssertions;
 
-    public UiSteps(HomePage homePage,
+    public UiSteps(
+            HomePage homePage,
             LoginPage loginPage,
             TestUserProvider testUserProvider,
             SignUpPage signUpPage,
@@ -33,7 +34,8 @@ public class UiSteps {
             CreatedAccountAssertions createdAccountAssertions,
             HomePageAssertions homePageAssertions,
             DeletedAccountPage deletedAccountPage,
-            DeletedAccountAssertions deletedAccountAssertions) {
+            DeletedAccountAssertions deletedAccountAssertions
+    ) {
         this.homePage = homePage;
         this.loginPage = loginPage;
         this.testUserProvider = testUserProvider;
@@ -46,12 +48,16 @@ public class UiSteps {
         this.deletedAccountAssertions = deletedAccountAssertions;
     }
 
-    @Given("user is on the home page")
+    @Given(
+        "user is on the home page"
+    )
     public void openHomePage() {
         homePage.open();
     }
 
-    @When("user registers a new account")
+    @When(
+        "user registers a new account"
+    )
     public void user_registers_a_new_account() {
         homePage.openLogin();
 
@@ -68,7 +74,9 @@ public class UiSteps {
         signUpPage.fillRegistrationDetails(user.toRegistrationData());
     }
 
-    @Then("user is logged in")
+    @Then(
+        "user is logged in"
+    )
     public void user_is_logged_in() {
         createdAccountAssertions.assertVisibleText("Account Created!");
         createdAccountPage.clickContinue();
@@ -77,7 +85,9 @@ public class UiSteps {
         homePageAssertions.assertLoggedUser(user.name());
     }
 
-    @When("user deletes the account")
+    @When(
+        "user deletes the account"
+    )
     public void user_deletes_the_account() {
         homePage.deleteAccount();
 
@@ -85,7 +95,9 @@ public class UiSteps {
         deletedAccountPage.clickContinue();
     }
 
-    @Then("account is deleted")
+    @Then(
+        "account is deleted"
+    )
     public void account_is_deleted() {
         homePage.checkIfAccountWasDeletedSuccessfully();
     }

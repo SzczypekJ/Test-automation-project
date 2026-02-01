@@ -19,15 +19,30 @@ import org.springframework.context.annotation.ScopedProxyMode;
 @Configuration
 public class WebDriverConfig {
 
-    @Bean(destroyMethod = "quit")
-    @Scope(value = CucumberTestContext.SCOPE_CUCUMBER_GLUE,
-            proxyMode = ScopedProxyMode.TARGET_CLASS)
+    @Bean(
+            destroyMethod = "quit"
+    )
+    @Scope(
+            value = CucumberTestContext.SCOPE_CUCUMBER_GLUE,
+            proxyMode = ScopedProxyMode.TARGET_CLASS
+    )
     public WebDriver webDriver(
-            @org.springframework.beans.factory.annotation.Value("${ui.headless:false}") boolean headless,
-            @org.springframework.beans.factory.annotation.Value("${ui.browserMaximize:true}") boolean maximize,
-            @org.springframework.beans.factory.annotation.Value("${ui.windowWidth:1920}") int width,
-            @org.springframework.beans.factory.annotation.Value("${ui.windowHeight:1080}") int height,
-            @org.springframework.beans.factory.annotation.Value("${ui.ublockPath:}") String ublockPath) {
+            @org.springframework.beans.factory.annotation.Value(
+                "${ui.headless:false}"
+            ) boolean headless,
+            @org.springframework.beans.factory.annotation.Value(
+                "${ui.browserMaximize:true}"
+            ) boolean maximize,
+            @org.springframework.beans.factory.annotation.Value(
+                "${ui.windowWidth:1920}"
+            ) int width,
+            @org.springframework.beans.factory.annotation.Value(
+                "${ui.windowHeight:1080}"
+            ) int height,
+            @org.springframework.beans.factory.annotation.Value(
+                "${ui.ublockPath:}"
+            ) String ublockPath
+    ) {
         WebDriverManager.chromedriver().setup();
 
         ChromeOptions options = new ChromeOptions();

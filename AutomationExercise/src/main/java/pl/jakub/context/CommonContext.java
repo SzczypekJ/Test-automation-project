@@ -5,7 +5,9 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
-@Scope(CucumberTestContext.SCOPE_CUCUMBER_GLUE)
+@Scope(
+    CucumberTestContext.SCOPE_CUCUMBER_GLUE
+)
 public class CommonContext {
 
     // === UI ===
