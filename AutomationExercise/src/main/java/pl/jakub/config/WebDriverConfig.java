@@ -20,7 +20,8 @@ import org.springframework.context.annotation.ScopedProxyMode;
 public class WebDriverConfig {
 
     @Bean(destroyMethod = "quit")
-    @Scope(value = CucumberTestContext.SCOPE_CUCUMBER_GLUE, proxyMode = ScopedProxyMode.TARGET_CLASS)
+    @Scope(value = CucumberTestContext.SCOPE_CUCUMBER_GLUE,
+            proxyMode = ScopedProxyMode.TARGET_CLASS)
     public WebDriver webDriver(
             @org.springframework.beans.factory.annotation.Value("${ui.headless:false}") boolean headless,
             @org.springframework.beans.factory.annotation.Value("${ui.browserMaximize:true}") boolean maximize,
@@ -30,12 +31,24 @@ public class WebDriverConfig {
         WebDriverManager.chromedriver().setup();
 
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--disable-gpu", "--no-sandbox", "--disable-dev-shm-usage");
+        options.addArguments("--disable-gpu",
+                "--no-sandbox",
+                "--disable-dev-shm-usage");
 
-        options.setExperimentalOption("prefs", Map.of("credentials_enable_service", false, "profile.password_manager_enabled", false, "profile.default_content_setting_values.notifications", 2, "profile.default_content_setting_values.popups", 2));
+        options.setExperimentalOption("prefs",
+                Map.of("credentials_enable_service",
+                        false,
+                        "profile.password_manager_enabled",
+                        false,
+                        "profile.default_content_setting_values.notifications",
+                        2,
+                        "profile.default_content_setting_values.popups",
+                        2));
 
-        options.setExperimentalOption("excludeSwitches", List.of("enable-automation"));
-        options.setExperimentalOption("useAutomationExtension", false);
+        options.setExperimentalOption("excludeSwitches",
+                List.of("enable-automation"));
+        options.setExperimentalOption("useAutomationExtension",
+                false);
 
         if (headless) {
             options.addArguments("--headless=new");
@@ -59,9 +72,17 @@ public class WebDriverConfig {
         try {
             DevTools devTools = chrome.getDevTools();
             devTools.createSession();
-            List<String> blocked = List.of("*://*.doubleclick.net/*", "*://*.googlesyndication.com/*", "*://*.googleadservices.com/*", "*://*.adservice.google.com/*", "*://*/pagead/*", "*://*/ads/*");
-            devTools.send(new Command<>("Network.enable", Map.of()));
-            devTools.send(new Command<>("Network.setBlockedURLs", Map.of("urls", blocked)));
+            List<String> blocked = List.of("*://*.doubleclick.net/*",
+                    "*://*.googlesyndication.com/*",
+                    "*://*.googleadservices.com/*",
+                    "*://*.adservice.google.com/*",
+                    "*://*/pagead/*",
+                    "*://*/ads/*");
+            devTools.send(new Command<>("Network.enable",
+                    Map.of()));
+            devTools.send(new Command<>("Network.setBlockedURLs",
+                    Map.of("urls",
+                            blocked)));
 
         } catch (Exception e) {
             System.out.println("[WARN] CDP blockedURLs skipped: " + e.getMessage());

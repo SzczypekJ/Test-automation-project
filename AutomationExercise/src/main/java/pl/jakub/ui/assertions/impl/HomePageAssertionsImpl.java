@@ -18,11 +18,13 @@ public class HomePageAssertionsImpl implements HomePageAssertions {
 
     @Override
     public void assertLoggedUser(String expectedUserName) {
-        assertEquals(expectedUserName, homePage.getLoggedUserName());
+        assertEquals(expectedUserName,
+                homePage.getLoggedUserName());
     }
 
     @Override
     public void assertAccountDeleted() {
-        assertFalse(homePage.isLoggedUserVisible(), "Account deletion failed — user is still logged in");
+        assertFalse(homePage.isLoggedUserVisible(),
+                "Account deletion failed — user is still logged in");
     }
 }

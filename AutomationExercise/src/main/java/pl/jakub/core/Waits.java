@@ -13,7 +13,9 @@ public class Waits {
     private final Duration pollEvery;
 
     public Waits(WebDriver driver, Duration timeout) {
-        this(driver, timeout, Duration.ofMillis(100));
+        this(driver,
+                timeout,
+                Duration.ofMillis(100));
     }
 
     public Waits(WebDriver driver, Duration timeout, Duration pollEvery) {
@@ -27,9 +29,13 @@ public class Waits {
     }
 
     private FluentWait<WebDriver> waitDriver(Duration timeoutOverride) {
-        Duration t = (timeoutOverride == null || timeoutOverride.isZero() || timeoutOverride.isNegative()) ? timeout : timeoutOverride;
+        Duration t = (timeoutOverride == null || timeoutOverride.isZero() || timeoutOverride
+                .isNegative()) ? timeout : timeoutOverride;
 
-        return new WebDriverWait(driver, t).pollingEvery(pollEvery).ignoring(StaleElementReferenceException.class).ignoring(NoSuchElementException.class);
+        return new WebDriverWait(driver,
+                t).pollingEvery(pollEvery)
+                .ignoring(StaleElementReferenceException.class)
+                .ignoring(NoSuchElementException.class);
     }
 
     public WebElement waitForVisibilityOfElement(By locator) {
@@ -61,7 +67,8 @@ public class Waits {
     }
 
     public boolean textToBePresentIn(By locator, String text) {
-        return Boolean.TRUE.equals(waitDriver().until(ExpectedConditions.textToBePresentInElementLocated(locator, text)));
+        return Boolean.TRUE.equals(waitDriver().until(ExpectedConditions.textToBePresentInElementLocated(locator,
+                text)));
     }
 
     public boolean checkIfElementIsInvisible(By locator) {
@@ -89,7 +96,8 @@ public class Waits {
     }
 
     public boolean isElementVisible(By locator) {
-        return isElementVisible(locator, WaitTimeout.DEFAULT);
+        return isElementVisible(locator,
+                WaitTimeout.DEFAULT);
     }
 
     public boolean isDisplayedNow(By locator) {

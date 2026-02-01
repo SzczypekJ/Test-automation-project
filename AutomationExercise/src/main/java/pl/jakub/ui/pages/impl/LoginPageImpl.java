@@ -41,7 +41,8 @@ public class LoginPageImpl extends BasePage implements LoginPage {
 
     @Override
     protected List<By> requiredVisibleElements() {
-        return List.of(LOGIN_FORM, SIGNUP_FORM);
+        return List.of(LOGIN_FORM,
+                SIGNUP_FORM);
     }
 
     @Override

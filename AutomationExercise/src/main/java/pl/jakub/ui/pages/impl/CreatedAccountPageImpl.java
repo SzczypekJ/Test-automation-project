@@ -29,7 +29,8 @@ public class CreatedAccountPageImpl extends BasePage implements CreatedAccountPa
 
     @Override
     protected List<By> requiredVisibleElements() {
-        return List.of(ACCOUNT_CREATED, CONTINUE_BUTTON);
+        return List.of(ACCOUNT_CREATED,
+                CONTINUE_BUTTON);
     }
 
     @Override

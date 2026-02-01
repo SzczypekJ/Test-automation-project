@@ -17,7 +17,9 @@ public class SignUpAssertionsImpl implements SignUpAssertions {
 
     @Override
     public void assertProvidedInformation(String expectedName, String expectedEmail) {
-        assertEquals(expectedEmail, signUpPage.getEmailValue());
-        assertEquals(expectedName, signUpPage.getNameValue());
+        assertEquals(expectedEmail,
+                signUpPage.getEmailValue());
+        assertEquals(expectedName,
+                signUpPage.getNameValue());
     }
 }

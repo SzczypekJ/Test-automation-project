@@ -9,9 +9,11 @@ public class UiActions {
     private final WebDriver driver;
     private final Waits waits;
 
-    private static final By VIGNETTE_CLOSE_BUTTON = By.xpath("//*[self::button or self::div or self::span]" + "[normalize-space()='Close' or @aria-label='Close' or @title='Close']");
+    private static final By VIGNETTE_CLOSE_BUTTON = By.xpath(
+            "//*[self::button or self::div or self::span]" + "[normalize-space()='Close' or @aria-label='Close' or @title='Close']");
 
-    private static final By VIGNETTE_OVERLAY = By.cssSelector("body > div[role='dialog'], iframe[id*='google'], iframe[src*='google']");
+    private static final By VIGNETTE_OVERLAY = By.cssSelector(
+            "body > div[role='dialog'], iframe[id*='google'], iframe[src*='google']");
 
     public UiActions(WebDriver driver, Waits waits) {
         this.driver = driver;
@@ -20,12 +22,14 @@ public class UiActions {
 
     public void scrollIntoView(By locator) {
         WebElement el = waits.waitForPresenceOfElement(locator);
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block:'center'});", el);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block:'center'});",
+                el);
     }
 
     public void jsClick(By locator) {
         WebElement el = waits.waitForPresenceOfElement(locator);
-        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", el);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].click();",
+                el);
     }
 
     public void type(By locator, String text) {

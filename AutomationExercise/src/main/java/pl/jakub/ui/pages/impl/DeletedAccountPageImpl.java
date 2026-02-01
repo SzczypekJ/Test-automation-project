@@ -29,7 +29,8 @@ public class DeletedAccountPageImpl extends BasePage implements DeletedAccountPa
 
     @Override
     protected List<By> requiredVisibleElements() {
-        return List.of(ACCOUNT_DELETED, CONTINUE_BUTTON);
+        return List.of(ACCOUNT_DELETED,
+                CONTINUE_BUTTON);
     }
 
     @Override
