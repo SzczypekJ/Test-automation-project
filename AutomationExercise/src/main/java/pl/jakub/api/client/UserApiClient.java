@@ -18,10 +18,10 @@ public class UserApiClient {
         this.api = api;
     }
 
-    public void createUser(RegistrationData data) {
+    public Response createUser(RegistrationData data) {
         LocalDate dob = data.dateOfBirth();
 
-        Response response = api.request()
+        return api.request()
                 .contentType("application/x-www-form-urlencoded; charset=UTF-8")
                 .formParam("name", data.firstName() + " " + data.lastName())
                 .formParam("email", data.email())
@@ -42,12 +42,6 @@ public class UserApiClient {
                 .formParam("mobile_number", data.mobileNumber())
                 .post("/createAccount");
 
-        int status = response.statusCode();
-        assertTrue(status == 200 || status == 201,
-                "Expected HTTP 200 or 201 for createAccount but was: " + status + "\nBody: " + response.asString());
-
-        String body = response.asString();
-        assertTrue(body.contains("User created!"), "Unexpected response: " + body);
     }
 
     private String toApiTitle(pl.jakub.common.Title title) {
