@@ -61,4 +61,12 @@ public class LoginPageImpl extends BasePage implements LoginPage {
         driver.waits().waitForElementToBeClickable(SIGNUP_EMAIL_INPUT).sendKeys(email);
         driver.waits().waitForElementToBeClickable(SIGNUP_BUTTON).click();
     }
+
+    @Override
+    public void logIntoAccount(String email, String password) {
+        checkPageReady();
+        driver.waits().waitForElementToBeClickable(LOGIN_EMAIL_INPUT).sendKeys(email);
+        driver.waits().waitForElementToBeClickable(LOGIN_PASSWORD_INPUT).sendKeys(password);
+        driver.waits().waitForElementToBeClickable(LOGIN_BUTTON).click();
+    }
 }
