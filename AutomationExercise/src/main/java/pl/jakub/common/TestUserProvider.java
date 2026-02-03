@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 @Component
@@ -77,5 +78,59 @@ public class TestUserProvider {
                 zipCode,
                 mobileNumber
         );
+    }
+
+    public RegistrationData newUniqueRegistrationData() {
+        String email = generateUniqueEmail(emailBase);
+
+        return new RegistrationData(
+                title,
+                email,
+                password,
+                dateOfBirth,
+                firstName,
+                lastName,
+                company,
+                address,
+                addressSecond,
+                country,
+                state,
+                city,
+                zipCode,
+                mobileNumber
+        );
+    }
+
+    public UserCredentials toCredentials(RegistrationData data) {
+        String name = data.firstName() + " " + data.lastName();
+        return new UserCredentials(
+                name,
+                data.email(),
+                data.password(),
+                data.title(),
+                data.dateOfBirth(),
+                data.firstName(),
+                data.lastName(),
+                data.company(),
+                data.address(),
+                data.addressSecond(),
+                data.country(),
+                data.state(),
+                data.city(),
+                data.zipCode(),
+                data.mobileNumber()
+        );
+    }
+
+    private String generateUniqueEmail(String baseEmail) {
+        String suffix = LocalDateTime.now()
+                .format(DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss"));
+
+        int at = baseEmail.indexOf('@');
+        if (at < 0) return baseEmail + "+" + suffix;
+
+        String local = baseEmail.substring(0, at);
+        String domain = baseEmail.substring(at);
+        return local + "+" + suffix + domain;
     }
 }

@@ -22,6 +22,7 @@ public record UserCredentials(
     public RegistrationData toRegistrationData() {
         return new RegistrationData(
                 title,
+                email,
                 password,
                 dateOfBirth,
                 firstName,

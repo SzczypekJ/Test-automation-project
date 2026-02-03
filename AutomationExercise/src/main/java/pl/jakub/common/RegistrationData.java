@@ -4,6 +4,7 @@ import java.time.LocalDate;
 
 public record RegistrationData(
         Title title,
+        String email,
         String password,
         LocalDate dateOfBirth,
         String firstName,

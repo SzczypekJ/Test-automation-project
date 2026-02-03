@@ -6,3 +6,11 @@ Feature: UI Smoke Test
     Then user is logged in
     When user deletes the account
     Then account is deleted
+
+  @requiresApiUser
+  Scenario: Login User with correct email and password
+    Given user is on the home page
+    When user login to the existing account
+    Then user is logged in
+    When user deletes the account
+    Then account is deleted
