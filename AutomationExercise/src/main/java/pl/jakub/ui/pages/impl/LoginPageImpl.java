@@ -30,6 +30,8 @@ public class LoginPageImpl extends BasePage implements LoginPage {
 
     private static final By SIGNUP_NAME_INPUT = By.xpath("//input[@data-qa='signup-name']");
 
+    private static final By LOGIN_ERROR = By.xpath("//form[@action='/login']//p[@style='color: red;']");
+
     public LoginPageImpl(CustomWebDriver driver, HeaderComponent header) {
         super(driver);
         this.header = header;
@@ -68,5 +70,11 @@ public class LoginPageImpl extends BasePage implements LoginPage {
         driver.waits().waitForElementToBeClickable(LOGIN_EMAIL_INPUT).sendKeys(email);
         driver.waits().waitForElementToBeClickable(LOGIN_PASSWORD_INPUT).sendKeys(password);
         driver.waits().waitForElementToBeClickable(LOGIN_BUTTON).click();
+    }
+
+    @Override
+    public String getLoginErrorText() {
+        checkPageReady();
+        return driver.waits().waitForVisibilityOfElement(LOGIN_ERROR).getText();
     }
 }

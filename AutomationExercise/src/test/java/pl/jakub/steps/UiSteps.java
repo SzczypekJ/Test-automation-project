@@ -1,15 +1,13 @@
 package pl.jakub.steps;
 
+import io.cucumber.java.PendingException;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pl.jakub.common.TestUserProvider;
 import pl.jakub.common.UserCredentials;
 import pl.jakub.context.CommonContext;
-import pl.jakub.ui.assertions.CreatedAccountAssertions;
-import pl.jakub.ui.assertions.DeletedAccountAssertions;
-import pl.jakub.ui.assertions.HomePageAssertions;
-import pl.jakub.ui.assertions.SignUpAssertions;
+import pl.jakub.ui.assertions.*;
 import pl.jakub.ui.pages.*;
 
 
@@ -26,8 +24,9 @@ public class UiSteps {
     private final DeletedAccountPage deletedAccountPage;
     private final DeletedAccountAssertions deletedAccountAssertions;
     private final CommonContext commonContext;
+    LoginPageAssertions loginPageAssertions;
 
-    public UiSteps(HomePage homePage, LoginPage loginPage, TestUserProvider testUserProvider, SignUpPage signUpPage, CreatedAccountPage createdAccountPage, SignUpAssertions signUpAssertions, CreatedAccountAssertions createdAccountAssertions, HomePageAssertions homePageAssertions, DeletedAccountPage deletedAccountPage, DeletedAccountAssertions deletedAccountAssertions, CommonContext commonContext) {
+    public UiSteps(HomePage homePage, LoginPage loginPage, TestUserProvider testUserProvider, SignUpPage signUpPage, CreatedAccountPage createdAccountPage, SignUpAssertions signUpAssertions, CreatedAccountAssertions createdAccountAssertions, HomePageAssertions homePageAssertions, DeletedAccountPage deletedAccountPage, DeletedAccountAssertions deletedAccountAssertions, CommonContext commonContext, LoginPageAssertions loginPageAssertions) {
         this.homePage = homePage;
         this.loginPage = loginPage;
         this.testUserProvider = testUserProvider;
@@ -39,6 +38,7 @@ public class UiSteps {
         this.deletedAccountPage = deletedAccountPage;
         this.deletedAccountAssertions = deletedAccountAssertions;
         this.commonContext = commonContext;
+        this.loginPageAssertions = loginPageAssertions;
     }
 
     @When("user login to the existing account")
@@ -88,7 +88,17 @@ public class UiSteps {
 
     @Then("account is deleted")
     public void account_is_deleted() {
-        homePage.checkIfAccountWasDeletedSuccessfully();
+        homePageAssertions.assertAccountDeleted();
     }
 
+    @When("user logs in with incorrect email and password")
+    public void user_logs_in_with_incorrect_email_and_password() {
+        homePage.openLogin();
+        loginPage.logIntoAccount("wrong_email@gmail.com123213123", "WrongPassword12312312");
+    }
+
+    @Then("login error {string} is visible")
+    public void login_error_is_visible(String expected) {
+        loginPageAssertions.assertLoginErrorVisible(expected);
+    }
 }

@@ -7,5 +7,8 @@ public interface DeletedAccountPage {
      */
     String getPopUpText();
 
+    /**
+     * Clicks the Continue button on the current page.
+     */
     void clickContinue();
 }

@@ -65,14 +65,6 @@ public class HomePageImpl extends BasePage implements HomePage {
     }
 
     @Override
-    public void checkIfAccountWasDeletedSuccessfully() {
-        checkPageReady();
-        if (header.isLoggedUserVisible()) {
-            throw new AssertionError("Account deletion failed — user is still logged in");
-        }
-    }
-
-    @Override
     public boolean isLoggedUserVisible() {
         checkPageReady();
         return header.isLoggedUserVisible();

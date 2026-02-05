@@ -23,13 +23,7 @@ public interface HomePage {
     void deleteAccount();
 
     /**
-     * Verifies that account was deleted correctly
-     */
-    void checkIfAccountWasDeletedSuccessfully();
-
-    /**
      * Checks whether logged user label is visible
      */
     boolean isLoggedUserVisible();
-
 }
