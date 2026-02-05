@@ -12,5 +12,10 @@ public interface LoginPage {
      */
     void logIntoAccount(String email, String password);
 
+    /**
+     * Returns the login error message displayed on the login form.
+     *
+     * @return visible login error text
+     */
     String getLoginErrorText();
 }
