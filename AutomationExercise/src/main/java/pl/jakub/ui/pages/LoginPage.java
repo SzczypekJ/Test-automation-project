@@ -11,4 +11,6 @@ public interface LoginPage {
      * Login into existing account
      */
     void logIntoAccount(String email, String password);
+
+    String getLoginErrorText();
 }
