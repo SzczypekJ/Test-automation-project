@@ -25,6 +25,8 @@ The goal of the project is to build a scalable, maintainable, and extensible UI/
 - JUnit
 - Spring
 - Maven
+- Allure
+- Jenkins
 
 ---
 
