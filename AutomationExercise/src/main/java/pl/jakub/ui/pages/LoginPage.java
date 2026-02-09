@@ -20,6 +20,13 @@ public interface LoginPage {
     String getLoginErrorText();
 
     /**
+     * Returns the register error message displayed on the login form.
+     *
+     * @return visible register error text
+     */
+    String getRegisterErrorText();
+
+    /**
      * Checks if Login Page is fully loaded
      */
     void waitUntilReady();

@@ -32,6 +32,8 @@ public class LoginPageImpl extends BasePage implements LoginPage {
 
     private static final By LOGIN_ERROR = By.xpath("//form[@action='/login']//p[@style='color: red;']");
 
+    private static final By REGISTER_ERROR = By.xpath("//form[@action='/signup']//p[@style='color: red;']");
+
     public LoginPageImpl(CustomWebDriver driver, HeaderComponent header) {
         super(driver);
         this.header = header;
@@ -76,6 +78,11 @@ public class LoginPageImpl extends BasePage implements LoginPage {
     public String getLoginErrorText() {
         checkPageReady();
         return driver.waits().waitForVisibilityOfElement(LOGIN_ERROR).getText();
+    }
+
+    @Override
+    public String getRegisterErrorText() {
+        return driver.waits().waitForVisibilityOfElement(REGISTER_ERROR).getText();
     }
 
     @Override

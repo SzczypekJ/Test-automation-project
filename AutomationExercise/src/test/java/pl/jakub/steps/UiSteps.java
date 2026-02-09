@@ -105,6 +105,23 @@ public class UiSteps {
     @When("user logout from the account")
     public void user_logout_from_the_account() {
         homePage.logout();
+    }
+
+    @When("user registers to existing account")
+    public void user_registers_to_existing_account() {
+        var user = commonContext.getUser();
+
+        homePage.openLogin();
+        loginPage.startSignUp(user.name(), user.email());
+    }
+
+    @Then("user is redirected to the Login Page")
+    public void user_is_redirected_to_the_Login_Page() {
         loginPage.waitUntilReady();
+    }
+
+    @Then("register error {string} is visible")
+    public void register_error_is_visible(String expected) {
+        loginPageAssertions.assertRegisterErrorVisible(expected);
     }
 }
