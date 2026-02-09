@@ -21,6 +21,8 @@ public class HeaderComponentImpl implements HeaderComponent {
 
     private static final By LOGO = By.xpath("//div[contains(@class, 'logo')]");
 
+    private static final By LOGOUT = By.xpath("//ul[contains(@class,'nav')]//a[@href='/logout']");
+
     public HeaderComponentImpl(CustomWebDriver driver) {
         this.driver = driver;
     }
@@ -57,5 +59,10 @@ public class HeaderComponentImpl implements HeaderComponent {
     @Override
     public boolean isLoggedUserVisible() {
         return driver.waits().isDisplayedNow(LOGGED_USER);
+    }
+
+    @Override
+    public void logout() {
+        driver.waits().waitForElementToBeClickable(LOGOUT).click();
     }
 }

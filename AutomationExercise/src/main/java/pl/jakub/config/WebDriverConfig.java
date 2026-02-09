@@ -16,10 +16,12 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Configuration
 public class WebDriverConfig {
+    private static final Logger logger = LoggerFactory.getLogger(WebDriverConfig.class);
 
     @Bean(destroyMethod = "quit")
     @Scope(
@@ -82,9 +84,8 @@ public class WebDriverConfig {
             devTools.send(new Command<>("Network.setBlockedURLs", Map.of("urls", blocked)));
 
         } catch (Exception e) {
-            System.out.println("[WARN] CDP blockedURLs skipped: " + e.getMessage());
+            logger.warn("CDP blockedURLs skipped", e);
         }
-
 
         return chrome;
     }

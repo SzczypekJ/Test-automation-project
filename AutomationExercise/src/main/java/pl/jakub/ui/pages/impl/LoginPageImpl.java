@@ -77,4 +77,9 @@ public class LoginPageImpl extends BasePage implements LoginPage {
         checkPageReady();
         return driver.waits().waitForVisibilityOfElement(LOGIN_ERROR).getText();
     }
+
+    @Override
+    public void waitUntilReady() {
+        checkPageReady();
+    }
 }
