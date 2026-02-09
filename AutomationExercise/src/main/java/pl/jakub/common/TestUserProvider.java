@@ -7,6 +7,8 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+import static java.util.UUID.randomUUID;
+
 @Component
 public class TestUserProvider {
 
@@ -124,13 +126,15 @@ public class TestUserProvider {
 
     private String generateUniqueEmail(String baseEmail) {
         String suffix = LocalDateTime.now()
-                .format(DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss"));
+                .format(DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss_SSS"));
+
+        String randomNumber = randomUUID().toString().substring(0, 10);
 
         int at = baseEmail.indexOf('@');
-        if (at < 0) return baseEmail + "+" + suffix;
+        if (at < 0) return baseEmail + "+" + suffix + "_" + randomNumber;
 
         String local = baseEmail.substring(0, at);
         String domain = baseEmail.substring(at);
-        return local + "+" + suffix + domain;
+        return local + "+" + suffix + "_" + randomNumber + domain;
     }
 }

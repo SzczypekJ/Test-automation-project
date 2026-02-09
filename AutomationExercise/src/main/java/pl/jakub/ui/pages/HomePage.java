@@ -26,4 +26,9 @@ public interface HomePage {
      * Checks whether logged user label is visible
      */
     boolean isLoggedUserVisible();
+
+    /**
+     * Click on logout button
+     */
+    void logout();
 }

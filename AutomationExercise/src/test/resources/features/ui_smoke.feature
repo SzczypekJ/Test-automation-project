@@ -19,3 +19,10 @@ Feature: UI Smoke Test
     Given user is on the home page
     When user logs in with incorrect email and password
     Then login error "Your email or password is incorrect!" is visible
+
+  @requiresApiUser
+  Scenario: Logout User
+    Given user is on the home page
+    When user login to the existing account
+    Then user is logged in
+    When user logout from the account

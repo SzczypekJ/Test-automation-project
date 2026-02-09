@@ -35,4 +35,9 @@ public interface HeaderComponent {
      * Checks whether logged user label is visible in header
      */
     boolean isLoggedUserVisible();
+
+    /**
+     * Clicks on logout button in the header
+     */
+    void logout();
 }

@@ -18,4 +18,9 @@ public interface LoginPage {
      * @return visible login error text
      */
     String getLoginErrorText();
+
+    /**
+     * Checks if Login Page is fully loaded
+     */
+    void waitUntilReady();
 }

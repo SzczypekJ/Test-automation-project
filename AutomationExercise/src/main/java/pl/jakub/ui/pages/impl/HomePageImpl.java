@@ -69,4 +69,10 @@ public class HomePageImpl extends BasePage implements HomePage {
         checkPageReady();
         return header.isLoggedUserVisible();
     }
+
+    @Override
+    public void logout() {
+        checkPageReady();
+        header.logout();
+    }
 }

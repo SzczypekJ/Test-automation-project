@@ -101,4 +101,10 @@ public class UiSteps {
     public void login_error_is_visible(String expected) {
         loginPageAssertions.assertLoginErrorVisible(expected);
     }
+
+    @When("user logout from the account")
+    public void user_logout_from_the_account() {
+        homePage.logout();
+        loginPage.waitUntilReady();
+    }
 }
