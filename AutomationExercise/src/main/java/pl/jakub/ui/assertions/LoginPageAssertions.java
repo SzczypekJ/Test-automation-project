@@ -8,4 +8,11 @@ public interface LoginPageAssertions {
      * @param expected expected login error message
      */
     void assertLoginErrorVisible(String expected);
+
+    /**
+     * Verifies that the register error message matches the expected text.
+     *
+     * @param expected expected register error message
+     */
+    void assertRegisterErrorVisible(String expected);
 }

@@ -22,4 +22,13 @@ public class LoginPageAssertionsImpl implements LoginPageAssertions {
                 "Unexpected login error message"
         );
     }
+
+    @Override
+    public void assertRegisterErrorVisible(String expected) {
+        assertEquals(
+                expected.toLowerCase(),
+                loginPage.getRegisterErrorText().toLowerCase(),
+                "Unexpected login error message"
+        );
+    }
 }

@@ -26,3 +26,10 @@ Feature: UI Smoke Test
     When user login to the existing account
     Then user is logged in
     When user logout from the account
+    Then user is redirected to the Login Page
+
+  @requiresApiUser
+  Scenario: Register User with existing email
+    Given user is on the home page
+    When user registers to existing account
+    Then register error "Email Address already exist!" is visible
