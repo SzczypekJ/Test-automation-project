@@ -1,6 +1,7 @@
 package pl.jakub.steps;
 
 import io.cucumber.java.PendingException;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -9,6 +10,8 @@ import pl.jakub.common.UserCredentials;
 import pl.jakub.context.CommonContext;
 import pl.jakub.ui.assertions.*;
 import pl.jakub.ui.pages.*;
+
+import java.io.File;
 
 
 public class UiSteps {
@@ -24,9 +27,11 @@ public class UiSteps {
     private final DeletedAccountPage deletedAccountPage;
     private final DeletedAccountAssertions deletedAccountAssertions;
     private final CommonContext commonContext;
-    LoginPageAssertions loginPageAssertions;
+    private final LoginPageAssertions loginPageAssertions;
+    private final ContactUsPage contactUsPage;
+    private final ContactUsAssertions contactUsAssertions;
 
-    public UiSteps(HomePage homePage, LoginPage loginPage, TestUserProvider testUserProvider, SignUpPage signUpPage, CreatedAccountPage createdAccountPage, SignUpAssertions signUpAssertions, CreatedAccountAssertions createdAccountAssertions, HomePageAssertions homePageAssertions, DeletedAccountPage deletedAccountPage, DeletedAccountAssertions deletedAccountAssertions, CommonContext commonContext, LoginPageAssertions loginPageAssertions) {
+    public UiSteps(HomePage homePage, LoginPage loginPage, TestUserProvider testUserProvider, SignUpPage signUpPage, CreatedAccountPage createdAccountPage, SignUpAssertions signUpAssertions, CreatedAccountAssertions createdAccountAssertions, HomePageAssertions homePageAssertions, DeletedAccountPage deletedAccountPage, DeletedAccountAssertions deletedAccountAssertions, CommonContext commonContext, LoginPageAssertions loginPageAssertions, ContactUsPage contactUsPage, ContactUsAssertions contactUsAssertions) {
         this.homePage = homePage;
         this.loginPage = loginPage;
         this.testUserProvider = testUserProvider;
@@ -39,6 +44,8 @@ public class UiSteps {
         this.deletedAccountAssertions = deletedAccountAssertions;
         this.commonContext = commonContext;
         this.loginPageAssertions = loginPageAssertions;
+        this.contactUsPage = contactUsPage;
+        this.contactUsAssertions = contactUsAssertions;
     }
 
     @When("user login to the existing account")
@@ -123,5 +130,27 @@ public class UiSteps {
     @Then("register error {string} is visible")
     public void register_error_is_visible(String expected) {
         loginPageAssertions.assertRegisterErrorVisible(expected);
+    }
+
+    @When("user opens the Contact Us page")
+    public void user_opens_the_Contact_Us_page() {
+        homePage.openContactUs();
+    }
+
+    @And("user submits the contact form with valid data and an attachment")
+    public void user_submits_the_contact_form_with_valid_data_and_an_attachment() {
+        UserCredentials user = testUserProvider.defaultUser();
+        File file = new File("src/test/resources/files/test.txt");
+        contactUsPage.provideFormDetails(user.name(), user.email(), "Test", "This is a test", file);
+    }
+
+    @Then("success message {string} is visible")
+    public void success_message_is_visible(String expected) {
+        contactUsAssertions.assertVisibleText(expected);
+    }
+
+    @And("user is back on the home page")
+    public void user_is_back_on_the_home_page() {
+        homePage.openHomePage();
     }
 }

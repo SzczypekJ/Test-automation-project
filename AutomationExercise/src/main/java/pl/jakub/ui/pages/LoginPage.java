@@ -3,7 +3,10 @@ package pl.jakub.ui.pages;
 public interface LoginPage {
 
     /**
-     * Provides name and email to the Signup form
+     * Enters the user's name and email into the sign-up form.
+     *
+     * @param name  the user's name
+     * @param email the user's email address
      */
     void startSignUp(String name, String email);
 

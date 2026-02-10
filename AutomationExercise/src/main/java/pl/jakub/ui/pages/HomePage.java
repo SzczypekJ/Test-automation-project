@@ -31,4 +31,14 @@ public interface HomePage {
      * Click on logout button
      */
     void logout();
+
+    /**
+     * Opens Contact Us Page
+     */
+    void openContactUs();
+
+    /**
+     * Opens Home Page
+     */
+    void openHomePage();
 }
