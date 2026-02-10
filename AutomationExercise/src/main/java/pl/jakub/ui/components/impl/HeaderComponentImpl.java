@@ -23,6 +23,8 @@ public class HeaderComponentImpl implements HeaderComponent {
 
     private static final By LOGOUT = By.xpath("//ul[contains(@class,'nav')]//a[@href='/logout']");
 
+    private static final By CONTACT_US = By.xpath("//ul[contains(@class,'nav')]//a[@href='/contact_us']");
+
     public HeaderComponentImpl(CustomWebDriver driver) {
         this.driver = driver;
     }
@@ -64,5 +66,10 @@ public class HeaderComponentImpl implements HeaderComponent {
     @Override
     public void logout() {
         driver.waits().waitForElementToBeClickable(LOGOUT).click();
+    }
+
+    @Override
+    public void openContactUs() {
+        driver.waits().waitForElementToBeClickable(CONTACT_US).click();
     }
 }

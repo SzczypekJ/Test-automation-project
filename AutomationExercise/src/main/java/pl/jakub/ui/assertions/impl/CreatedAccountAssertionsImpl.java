@@ -5,6 +5,7 @@ import pl.jakub.ui.assertions.CreatedAccountAssertions;
 import pl.jakub.ui.pages.CreatedAccountPage;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+
 @Component
 public class CreatedAccountAssertionsImpl implements CreatedAccountAssertions {
 

@@ -109,4 +109,21 @@ public class Waits {
             return false;
         }
     }
+
+    public Alert waitForAlert(WaitTimeout timeout) {
+        return waitDriver(timeout.duration()).until(ExpectedConditions.alertIsPresent());
+    }
+
+    public Alert waitForAlert() {
+        return waitForAlert(WaitTimeout.SHORT);
+    }
+
+    public boolean isAlertPresent(WaitTimeout timeout) {
+        try {
+            waitForAlert(timeout);
+            return true;
+        } catch (TimeoutException e) {
+            return false;
+        }
+    }
 }

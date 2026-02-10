@@ -75,4 +75,15 @@ public class HomePageImpl extends BasePage implements HomePage {
         checkPageReady();
         header.logout();
     }
+
+    @Override
+    public void openContactUs() {
+        header.openContactUs();
+    }
+
+    @Override
+    public void openHomePage() {
+        header.openHome();
+        checkPageReady();
+    }
 }

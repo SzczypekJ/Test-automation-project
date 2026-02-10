@@ -40,4 +40,9 @@ public interface HeaderComponent {
      * Clicks on logout button in the header
      */
     void logout();
+
+    /**
+     * Opens Contact Us page using header navigation link.
+     */
+    void openContactUs();
 }

@@ -68,4 +68,21 @@ public class CustomWebDriver {
     public void click(By locator) {
         waits.waitForElementToBeClickable(locator).click();
     }
+
+    public void acceptAlert(WaitTimeout timeout) {
+        waits.waitForAlert(timeout).accept();
+    }
+
+    public void acceptAlert() {
+        acceptAlert(WaitTimeout.SHORT);
+    }
+
+    public void dismissAlert(WaitTimeout timeout) {
+        waits.waitForAlert(timeout).dismiss();
+    }
+
+    public String getAlertText(WaitTimeout timeout) {
+        return waits.waitForAlert(timeout).getText();
+    }
+
 }
