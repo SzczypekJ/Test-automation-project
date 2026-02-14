@@ -45,4 +45,9 @@ public interface HeaderComponent {
      * Opens Contact Us page using header navigation link.
      */
     void openContactUs();
+
+    /**
+     * Opens Test Cases page using header navigation link.
+     */
+    void openTestCases();
 }

@@ -34,9 +34,14 @@ Feature: UI Smoke Test
     When user registers to existing account
     Then register error "Email Address already exist!" is visible
 
-    Scenario: Contact Us Form
-      Given user is on the home page
-      When user opens the Contact Us page
-      And user submits the contact form with valid data and an attachment
-      Then success message "Success! Your details have been submitted successfully." is visible
-      And user is back on the home page
+  Scenario: Contact Us Form
+    Given user is on the home page
+    When user opens the Contact Us page
+    And user submits the contact form with valid data and an attachment
+    Then success message "Success! Your details have been submitted successfully." is visible
+    And user is back on the home page
+
+  Scenario: Verify Test Cases Page
+    Given user is on the home page
+    When user opens the test cases page
+    Then the test cases page is fully loaded

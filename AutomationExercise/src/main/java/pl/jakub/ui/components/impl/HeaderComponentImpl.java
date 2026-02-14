@@ -25,6 +25,8 @@ public class HeaderComponentImpl implements HeaderComponent {
 
     private static final By CONTACT_US = By.xpath("//ul[contains(@class,'nav')]//a[@href='/contact_us']");
 
+    private static final By TEST_CASES = By.xpath("//ul[contains(@class,'nav')]//a[@href='/test_cases']");
+
     public HeaderComponentImpl(CustomWebDriver driver) {
         this.driver = driver;
     }
@@ -71,5 +73,10 @@ public class HeaderComponentImpl implements HeaderComponent {
     @Override
     public void openContactUs() {
         driver.waits().waitForElementToBeClickable(CONTACT_US).click();
+    }
+
+    @Override
+    public void openTestCases() {
+        driver.waits().waitForElementToBeClickable(TEST_CASES).click();
     }
 }
