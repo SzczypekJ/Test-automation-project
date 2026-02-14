@@ -41,4 +41,9 @@ public interface HomePage {
      * Opens Home Page
      */
     void openHomePage();
+
+    /**
+     * Opens Test Case Page
+     */
+    void openTestCasePage();
 }

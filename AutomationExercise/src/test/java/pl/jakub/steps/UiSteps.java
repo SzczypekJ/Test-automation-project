@@ -30,8 +30,9 @@ public class UiSteps {
     private final LoginPageAssertions loginPageAssertions;
     private final ContactUsPage contactUsPage;
     private final ContactUsAssertions contactUsAssertions;
+    private final TestCasesPage testCasesPage;
 
-    public UiSteps(HomePage homePage, LoginPage loginPage, TestUserProvider testUserProvider, SignUpPage signUpPage, CreatedAccountPage createdAccountPage, SignUpAssertions signUpAssertions, CreatedAccountAssertions createdAccountAssertions, HomePageAssertions homePageAssertions, DeletedAccountPage deletedAccountPage, DeletedAccountAssertions deletedAccountAssertions, CommonContext commonContext, LoginPageAssertions loginPageAssertions, ContactUsPage contactUsPage, ContactUsAssertions contactUsAssertions) {
+    public UiSteps(HomePage homePage, LoginPage loginPage, TestUserProvider testUserProvider, SignUpPage signUpPage, CreatedAccountPage createdAccountPage, SignUpAssertions signUpAssertions, CreatedAccountAssertions createdAccountAssertions, HomePageAssertions homePageAssertions, DeletedAccountPage deletedAccountPage, DeletedAccountAssertions deletedAccountAssertions, CommonContext commonContext, LoginPageAssertions loginPageAssertions, ContactUsPage contactUsPage, ContactUsAssertions contactUsAssertions, TestCasesPage testCasesPage) {
         this.homePage = homePage;
         this.loginPage = loginPage;
         this.testUserProvider = testUserProvider;
@@ -46,6 +47,7 @@ public class UiSteps {
         this.loginPageAssertions = loginPageAssertions;
         this.contactUsPage = contactUsPage;
         this.contactUsAssertions = contactUsAssertions;
+        this.testCasesPage = testCasesPage;
     }
 
     @When("user login to the existing account")
@@ -152,5 +154,15 @@ public class UiSteps {
     @And("user is back on the home page")
     public void user_is_back_on_the_home_page() {
         homePage.openHomePage();
+    }
+
+    @When("user opens the test cases page")
+    public void user_opens_the_test_cases_page() {
+        homePage.openTestCasePage();
+    }
+
+    @Then("the test cases page is fully loaded")
+    public void the_test_cases_page_is_fully_loaded() {
+        testCasesPage.checkThatPageIsFullyLoaded();
     }
 }

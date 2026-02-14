@@ -86,4 +86,9 @@ public class HomePageImpl extends BasePage implements HomePage {
         header.openHome();
         checkPageReady();
     }
+
+    @Override
+    public void openTestCasePage() {
+        header.openTestCases();
+    }
 }
